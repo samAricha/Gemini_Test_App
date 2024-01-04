@@ -1,11 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
     namespace = "teka.android.geminitestapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "teka.android.geminitestapp"
@@ -38,6 +39,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -68,6 +70,9 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
 
+    val lifecycle_version = "2.6.2"
+
     implementation("com.google.ai.client.generativeai:generativeai:0.1.1")
     implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
 }
